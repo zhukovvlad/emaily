@@ -7,8 +7,14 @@ const { use } = require("passport");
 const User = mongoose.model("users");
 
 passport.serializeUser((user, done) => {
-  done(null, user.id)
-})
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+});
 
 passport.use(
   new GoogleStrategy(
@@ -22,6 +28,7 @@ passport.use(
         if (existingUser) {
           //  we already have a user with the given profile Id
           done(null, existingUser);
+          console.log("We have done function", done);
         } else {
           //  we don't have a user record, so let's make that record!
           new User({ googleId: profile.id })
