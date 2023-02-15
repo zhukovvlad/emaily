@@ -8,7 +8,13 @@ module.exports = (app) => {
     })
   );
 
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  );
 
   // added logout route
   app.get("/api/logout", (req, res) => {
@@ -17,7 +23,6 @@ module.exports = (app) => {
   });
 
   app.get("/api/current_user", (req, res) => {
-    res.send(req.session);
-    // res.send(req.user);
+    res.send(req.user);
   });
 };
