@@ -5,12 +5,12 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a className="left brand-logo">
+          <a className="brand-logo">
             Emaily
           </a>
           <ul className="right">
             <li>
-              <a>Login with Google</a>
+              <a>Login With Google</a>
             </li>
           </ul>
         </div>
