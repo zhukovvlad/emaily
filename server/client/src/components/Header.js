@@ -19,7 +19,7 @@ class Header extends Component {
           <li key="1">
             <Payments />
           </li>,
-          <li key="3" style={{ margin: "0px 0px 0px 10px" }}>
+          <li key="3" style={{ margin: "0px 0px 0px 15px" }}>
             Credits: {this.props.auth.credits}
           </li>,
           <li key="2">
