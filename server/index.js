@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
   //  Express will serve up droduction assets
   //  like our main.js or main.css
   const path = require("path");
-  app.use(express.static("/client/build"));
+  app.use(express.static(path.join(__dirname, '/client/build')));
 
   //  Express will serve up the index.html file
   // if it doesn't recognize the route
